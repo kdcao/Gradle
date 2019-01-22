@@ -1,0 +1,11 @@
+apply plugin : 'java'
+apply plugin : 'eclipse'
+ 
+task(runSimple, dependsOn: 'classes', type: JavaExec) {
+    main = 'main.java.com.test.Hello'
+    classpath = sourceSets.main.runtimeClasspath
+    args 'mrhaki'
+    systemProperty 'simple.message', 'Hello '
+}
+ 
+defaultTasks 'runSimple'
